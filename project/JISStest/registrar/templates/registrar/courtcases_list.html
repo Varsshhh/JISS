@@ -1,0 +1,80 @@
+{% include "registrar/index.html" %}
+
+<style>
+  .main {
+    margin-left: 220px;
+    font-size: 28px; 
+    padding: 0px 10px;
+  }
+</style>
+
+<style>
+  table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<div style="text-align:center"class="main">
+  <h1>PENDING COURT CASES:</h1>
+
+  <table class="table table-striped" style="width:100%;text-align: center;">
+    <thead>
+    <tr>
+      <th scope="col">CIN</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Defendant</th>
+      <th scope="col">Address</th>
+      <th scope="col">Crime Type</th>
+      <th scope="col">Lawyer</th>
+      <th scope="col">Public Prosecuter</th>
+      <th scope="col">attending Judge</th>
+    </tr>
+    </thead>
+    {% for case in object_list %}
+    {% if case.status == True %}
+    <tbody>
+    <tr>
+      <th scope="row"> {{case.pk}} </th>
+      <td> {{case.starting_date}} </td>
+      <td> {{case.defendant}} </td>
+      <td> {{case.defendant_address}} </td>
+      <td> {{case.crimetype}} </td>
+      <td> {{case.lawyer}} </td>
+      <td> {{case.public_prosecuter}} </td>
+      <td> {{case.presiding_judge}} </td>
+    </tr>
+    </tbody>
+    {% endif %}
+    {% endfor %}
+  </table>
+</div>
+
+
+<div class="footer">
+  <div class="container text-center">
+    <p>If we want truth and justice to rule our global village, there must be no hypocrisy. If there is no truth, then there will be no equality. No equality, no justice. No justice, no peace. No peace, no love. No love, only darkness.</p>
+    <i class="fa-solid fa-scale-balanced fa-2x mt-1"></i>
+  </div>
+</div>
+
+
+<style>
+  .footer {
+    background-color: lightgrey;
+    color: black;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .footer img {
+    width: 50px; /* adjust size as needed */
+    margin-top: 10px; /* adjust margin as needed */
+  }
+</style>

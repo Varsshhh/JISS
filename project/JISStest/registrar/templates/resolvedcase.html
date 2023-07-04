@@ -1,0 +1,72 @@
+{% include "registrar/index.html" %}
+
+<style>
+  .main {
+    margin-left: 220px;
+    font-size: 28px; 
+    padding: 0px 10px;
+  }
+  table, th, td {
+    border:1px solid black;
+  }
+</style>
+
+
+
+
+
+
+
+{% if error_message %}
+<div  class="alert alert-danger" role="alert" style="text-align: center;">
+ <p style="text-align: center;" >Error No resolved cases found in this date range!</p> 
+</div>
+{% else %}
+<div class="main">
+  <h1>RESOLVED COURT CASES: </h1>
+
+  <table class="table table-striped" style="width:100%">
+    <thead>
+    <tr>
+      <th scope="col">CIN</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Defendant</th>
+      <th scope="col">Address</th>
+      <th scope="col">Crime Type</th>
+      <th scope="col">Lawyer</th>
+      <th scope="col">Public Prosecuter</th>
+      <th scope="col">attending Judge</th>
+      <th scope="col">JudgeMent date</th>
+      <th scope="col">Judegment summary</th>
+    </tr>
+  </thead>
+    {% for case in object_list %}
+
+    <tbody>
+    <tr>
+      <th scope="row"> {{case.pk}} </td>
+      <td> {{case.starting_date}} </td>
+      <td> {{case.defendant}} </td>
+      <td> {{case.defendant_address}} </td>
+      <td> {{case.crimetype}} </td>
+      <td> {{case.lawyer}} </td>
+      <td> {{case.public_prosecuter}} </td>
+      <td> {{case.attending_judge}} </td>
+      <td> {{case.judgement_date}} </td>
+      <td> {{case.judgement_summary}} </td>
+    </tr>
+  </tbody>
+  
+    {% endfor %}
+  </table>
+</div>
+
+
+
+{% endif %}
+
+
+
+
+
+
